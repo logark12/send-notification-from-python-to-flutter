@@ -1,5 +1,5 @@
 
-from lib2to3.pgen2 import token
+
 import FCMManager as fcm
 from firebase_admin import db
 
@@ -12,8 +12,10 @@ tokens = [auth_app_im]
 
 ref = db.reference("/")
 
-token = ref.child("token").get()
-print(token)
+mob_token = ref.child("token").get()
+print(mob_token)
+
+tokens = [auth_app_mob]
 fcm.sendPush("from EpD server", "new message", tokens)
 
 
